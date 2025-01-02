@@ -1,0 +1,41 @@
+{
+  "welcomeFile": "index.html",
+  "authenticationMethod": "route",
+  "sessionTimeout": 10,
+  "pluginMetadataEndpoint": "/metadata",
+  "routes": [
+    {
+      "source": "^/(.*)$",
+      "target": "/services/$1",
+      "destination": "destination",
+      "authenticationType": "xsuaa",
+      "csrfProtection": true
+    }
+  ],
+  "login": {
+    "callbackEndpoint": "/login/callback"
+  },
+  "logout": {
+    "logoutEndpoint": "/my/logout",
+    "logoutPage": "/logout-page.html"
+  },
+  "destinations": {
+    "destination": {
+      "logoutPath": "/logout",
+      "logoutMethod": "GET"
+    }
+  },
+  "compression": {
+    "minSize": 2048
+  },
+  "whitelistService": {
+    "endpoint": "/whitelist/service"
+  },
+  "websockets": {
+    "enabled": true
+  },
+  "errorPage": [
+    {"status": [400,401,402], "file": "/custom-err-4xx.html"},
+    {"status": 501, "file": "/custom-err-501.html"}
+  ]
+}

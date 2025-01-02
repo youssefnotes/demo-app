@@ -1,0 +1,19 @@
+{
+  "welcomeFile": "./browser/index.html",
+  "authenticationMethod": "route",
+  "sessionTimeout": 10,
+  "pluginMetadataEndpoint": "/metadata",
+  "routes": [
+    {
+      "source": "^/user-api(.*)",
+      "target": "$1",
+      "service": "sap-approuter-userapi"
+    },
+    {
+      "source": "^/(.*)$",
+      "localDir": "dist",
+      "authenticationType": "ias",
+      "cacheControl": "no-cache, no-store, must-revalidate"
+    }
+  ]
+}

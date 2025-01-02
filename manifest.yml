@@ -1,0 +1,21 @@
+---
+applications:
+  - name: demo-app-1
+    memory: 512M
+    path: approuter
+    disk_quota: 1024M
+    stack: cflinuxfs4
+    buildpacks:
+      - nodejs_buildpack
+    instances: 1
+    random-route: true
+#    env:
+#      SESSION_TIMEOUT: 960
+#      TENANT_HOST_PATTERN: 'approuter-scaffold-(.*).cfapps.sap.hana.ondemand.com'
+#      destinations: '[{"name":"backend","url":"approuter-scaffold.cfapps.sap.hana.ondemand.com","forwardAuthToken":true}]'
+    services:
+      - demo-destination-svc
+#      - applog
+      - demo-xsuaa-svc
+#      - launchpad
+      - identity
