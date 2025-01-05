@@ -2,7 +2,7 @@
 applications:
   - name: demo-app-1
     memory: 512M
-    path: approuter
+    path: dist
     disk_quota: 1024M
     stack: cflinuxfs4
     buildpacks:
